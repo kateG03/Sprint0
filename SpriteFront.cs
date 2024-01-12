@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint0
 {
-    public class StaticSpriteMoving : ISprite
+    public class SpriteFontKate : ISprite
     {
         public Texture2D Texture { get; set; }
         public int Rows { get; set; }
@@ -17,10 +17,11 @@ namespace Sprint0
         public int LastFrame { get; set; }
         public int Wait { get; set; }
         public Vector2 Position { get; set; }
+        public SpriteFont Font { get; set; }
         public bool Start { get; set; }
-        public StaticSpriteMoving(Texture2D texture, Rectangle rectangle, Vector2 position)
+        public SpriteFontKate(SpriteFont font, Rectangle rectangle, Vector2 position)
         {
-            Texture = texture;
+            Font = font;
             Rectangle = rectangle;
             Position = position;
             LastFrame = 0;
@@ -29,28 +30,15 @@ namespace Sprint0
         }
         public void Move()
         {
-            //this sprite moves left and right
-            Position = new Vector2(Position.X, Position.Y - 10);
-            if (Position.Y < -20) Position = new Vector2( Position.X, 500);
+
         }
         public void Update(GameTime time)
         {
-            LastFrame += time.ElapsedGameTime.Milliseconds;
-            if (LastFrame >= Wait)
-            {
-                LastFrame -= Wait;
-                Move();
-            }
+
         }
         public void Draw(SpriteBatch SpriteBatch)
         {
-            int width = Rectangle.Width;
-            int height = Rectangle.Height;
-
-            Rectangle SourceRectangle = new Rectangle(width + Rectangle.X, height + Rectangle.Y, width, height) ;
-            Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
-
-            if (Start) SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
+            SpriteBatch.DrawString(Font, "Credits:\nProgram Made By: Kate Goertz\nSprites from: \nhttps://www.mariouniverse.com/wp-content/img/sprites/snes/smw/enemies-dinosaur.png", Position, Color.White);
         }
     }
 }

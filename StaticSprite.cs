@@ -17,11 +17,13 @@ namespace Sprint0
         public int LastFrame { get; set; }
         public int Wait { get; set; }
         public Vector2 Position { get; set; }
+        public bool Start { get; set; }
         public StaticSprite(Texture2D texture, Rectangle rectangle, Vector2 position)
         {
             Texture = texture;
             Rectangle = rectangle;
             Position = position;
+            Start = false;
             LastFrame = 0;
             Wait = 500;
             CurrentFrame = 0;
@@ -38,11 +40,10 @@ namespace Sprint0
         {
             int width = Rectangle.Width;
             int height = Rectangle.Height;
-
             Rectangle SourceRectangle = new Rectangle(width + Rectangle.X, height + Rectangle.Y, width, height) ;
             Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
 
-            SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
+            if (Start) SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
         }
     }
 }

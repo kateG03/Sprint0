@@ -14,7 +14,7 @@ namespace Sprint0
         int LastFrame { get; set; }
         int Wait {  get; set; }
         Vector2 Position { get; set; }
-
+        bool Start { get; set; }
         void Move();
         void Update(GameTime time);
         void Draw(SpriteBatch SpriteBatch);

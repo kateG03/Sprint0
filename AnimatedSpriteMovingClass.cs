@@ -17,6 +17,7 @@ namespace Sprint0
         public int LastFrame { get; set; }
         public int Wait { get; set; }
         public Vector2 Position { get; set; }
+        public bool Start { get; set; }
         public AnimatedSpriteMoving(Texture2D texture, int rows, int columns, Rectangle rectangle, Vector2 position)
         {
             Texture = texture;
@@ -59,7 +60,7 @@ namespace Sprint0
             Rectangle SourceRectangle = new Rectangle((width * column) + Rectangle.X, (height * row) + Rectangle.Y, width, height) ;
             Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
 
-            SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
+            if (Start) SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
         }
     }
 }
