@@ -12,8 +12,11 @@ namespace Sprint0
 		public Dictionary<object, Action> KeyValuePairs {get;set;}
 		public int LastFrame { get;set;}
 		public int Wait { get;set;}
+		public KeyboardState LastState { get;set;}
 		public KeyboardKate()
+
 		{
+			LastState = Keyboard.GetState();
 			KeyValuePairs = new Dictionary<object, Action>();
 			LastFrame = 0;
 			Wait = 100;
@@ -21,20 +24,17 @@ namespace Sprint0
 
 		public void Update(GameTime time)
 		{
-			LastFrame += time.ElapsedGameTime.Milliseconds;
-			if (LastFrame >= Wait)
-			{
-				LastFrame -= Wait;
-				KeyboardState state = Keyboard.GetState();
+				KeyboardState CurrentState = Keyboard.GetState();
 				foreach (object o in KeyValuePairs.Keys)
 				{
 					Keys k = (Keys)o;
-					if (state.IsKeyDown(k))
+					if (LastState.IsKeyDown(k) && CurrentState.IsKeyUp(k))
 					{
 						KeyValuePairs[k].Invoke();
 					}
 				}
-			}
+
+				LastState = CurrentState;
 		}
 		public void Add(object o, Action a)
 		{
