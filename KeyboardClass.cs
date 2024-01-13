@@ -7,7 +7,7 @@ using System.Data;
 namespace Sprint0
 {
 
-	public class KeyboardKate
+	public class KeyboardKate : IController
 	{
 		public Dictionary<object, Action> KeyValuePairs {get;set;}
 		public int LastFrame { get;set;}

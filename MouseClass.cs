@@ -7,9 +7,9 @@ using System.Data;
 namespace Sprint0
 {
 
-    public class MouseKate
+    public class MouseKate : IController
     {
-        public Dictionary<object, Action> MouseValuePairs { get; set; }
+        public Dictionary<object, Action> KeyValuePairs { get; set; }
         public int LastFrame { get; set; }
         public int Wait { get; set; }
         public MouseState LastState { get; set; }
@@ -18,7 +18,7 @@ namespace Sprint0
 
         {
             LastState = Mouse.GetState();
-            MouseValuePairs = new Dictionary<object, Action>();
+            KeyValuePairs = new Dictionary<object, Action>();
             LastFrame = 0;
             Wait = 100;
         }
@@ -27,25 +27,25 @@ namespace Sprint0
             Point location = CurrentState.Position;
             if (location.X < 400 &&  location.Y < 225)
             {
-                MouseValuePairs["Quad1"].Invoke();
+                KeyValuePairs["Quad1"].Invoke();
             }
             else if (location.X > 400 && location.Y < 225)
             {
-                MouseValuePairs["Quad2"].Invoke();
+                KeyValuePairs["Quad2"].Invoke();
             }
             else if (location.X < 400 && location.Y > 225)
             {
-                MouseValuePairs["Quad3"].Invoke();
+                KeyValuePairs["Quad3"].Invoke();
             }
             else 
             {
-                MouseValuePairs["Quad4"].Invoke();
+                KeyValuePairs["Quad4"].Invoke();
             }
         }
         public void Update(GameTime time)
         {
             CurrentState = Mouse.GetState();
-            foreach (object o in MouseValuePairs.Keys)
+            foreach (object o in KeyValuePairs.Keys)
             {
                 if (LastState.LeftButton == ButtonState.Pressed && CurrentState.LeftButton == ButtonState.Released)
                 {
@@ -53,7 +53,7 @@ namespace Sprint0
                 }
                 if(LastState.RightButton == ButtonState.Pressed && CurrentState.RightButton == ButtonState.Released)
                 {
-                    MouseValuePairs["Right-click"].Invoke();
+                    KeyValuePairs["Right-click"].Invoke();
                 }
             }
 
@@ -61,7 +61,7 @@ namespace Sprint0
         }
         public void Add(object o, Action a)
         {
-            MouseValuePairs.Add(o, a);
+            KeyValuePairs.Add(o, a);
         }
     }
 }
