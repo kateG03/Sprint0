@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework.Content;
+using System.ComponentModel.Design;
 
 namespace Sprint0
 {
@@ -18,8 +19,11 @@ namespace Sprint0
         public int Wait { get; set; }
         public Vector2 Position { get; set; }
         public bool Start { get; set; }
+
+        //Constructor
         public StaticSprite(Texture2D texture, Rectangle rectangle, Vector2 position)
         {
+            //Initialize values
             Texture = texture;
             Rectangle = rectangle;
             Position = position;
@@ -30,19 +34,21 @@ namespace Sprint0
         }
        public void Move()
         {
-
+            //Static, does not move
         }
         public void Update(GameTime time)
         {
-
+            //Static, does not update
         }
         public void Draw(SpriteBatch SpriteBatch)
         {
+            //Initialize rectangles
             int width = Rectangle.Width;
             int height = Rectangle.Height;
             Rectangle SourceRectangle = new Rectangle(width + Rectangle.X, height + Rectangle.Y, width, height) ;
             Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
 
+            //Draw on screen
             if (Start) SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
         }
     }

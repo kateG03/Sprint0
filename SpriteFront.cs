@@ -19,8 +19,11 @@ namespace Sprint0
         public Vector2 Position { get; set; }
         public SpriteFont Font { get; set; }
         public bool Start { get; set; }
+        
+        //Constructor
         public SpriteFontKate(SpriteFont font, Rectangle rectangle, Vector2 position)
         {
+            //Initialize values
             Font = font;
             Rectangle = rectangle;
             Position = position;
@@ -30,14 +33,15 @@ namespace Sprint0
         }
         public void Move()
         {
-
+            //Blank, font does not move
         }
         public void Update(GameTime time)
         {
-
+            //Blank, font does not update
         }
         public void Draw(SpriteBatch SpriteBatch)
         {
+            //Draw message to screen
             SpriteBatch.DrawString(Font, "Credits:\nProgram Made By: Kate Goertz\nSprites from: \nhttps://www.mariouniverse.com/wp-content/img/sprites/snes/smw/enemies-dinosaur.png", Position, Color.White);
         }
     }

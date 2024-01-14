@@ -18,8 +18,11 @@ namespace Sprint0
         public int Wait { get; set; }
         public Vector2 Position { get; set; }
         public bool Start { get; set; }
+
+        //Constructor
         public StaticSpriteMoving(Texture2D texture, Rectangle rectangle, Vector2 position)
         {
+            //Initialize values
             Texture = texture;
             Rectangle = rectangle;
             Position = position;
@@ -29,12 +32,14 @@ namespace Sprint0
         }
         public void Move()
         {
-            //this sprite moves left and right
+            //Moves this sprite left and right
             Position = new Vector2(Position.X, Position.Y - 10);
+            //Once the sprite is off-screen, start again
             if (Position.Y < -20) Position = new Vector2( Position.X, 500);
         }
         public void Update(GameTime time)
         {
+            //Update the sprite's animation
             LastFrame += time.ElapsedGameTime.Milliseconds;
             if (LastFrame >= Wait)
             {
@@ -44,12 +49,14 @@ namespace Sprint0
         }
         public void Draw(SpriteBatch SpriteBatch)
         {
+            //Initialize rectangles
             int width = Rectangle.Width;
             int height = Rectangle.Height;
 
             Rectangle SourceRectangle = new Rectangle(width + Rectangle.X, height + Rectangle.Y, width, height) ;
             Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
 
+            //Draw on screen
             if (Start) SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);
         }
     }
