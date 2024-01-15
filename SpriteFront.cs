@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint0
 {
-    public class SpriteFontKate : ISprite
+    public class SpriteFontLabel : ISprite
     {
         public Texture2D Texture { get; set; }
         public int Rows { get; set; }
@@ -21,7 +21,7 @@ namespace Sprint0
         public bool Start { get; set; }
         
         //Constructor
-        public SpriteFontKate(SpriteFont font, Rectangle rectangle, Vector2 position)
+        public SpriteFontLabel(SpriteFont font, Rectangle rectangle, Vector2 position)
         {
             //Initialize values
             Font = font;

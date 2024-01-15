@@ -7,7 +7,7 @@ using System.Data;
 namespace Sprint0
 {
 
-    public class MouseKate : IController
+    public class MouseController : IController
     {
         //Dictionary that contains keys and their associated values
         public Dictionary<object, Action> KeyValuePairs { get; set; }
@@ -17,7 +17,7 @@ namespace Sprint0
         public MouseState CurrentState { get; set; }
 
         //Constructor
-        public MouseKate()
+        public MouseController()
 
         {
             //Set LastState to the current state of the mouse

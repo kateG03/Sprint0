@@ -53,7 +53,7 @@ namespace Sprint0
             int width = Rectangle.Width;
             int height = Rectangle.Height;
 
-            Rectangle SourceRectangle = new Rectangle(width + Rectangle.X, height + Rectangle.Y, width, height) ;
+            Rectangle SourceRectangle = Rectangle;
             Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
 
             //Draw on screen

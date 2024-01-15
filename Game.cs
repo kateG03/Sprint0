@@ -37,14 +37,14 @@ namespace Sprint0
         //Initializes the game window and checks for Keyboard and Mouse inputs
         protected override void Initialize()
         {
-            KeyboardKate = new KeyboardKate();
+            KeyboardKate = new KeyboardController();
             KeyboardKate.Add(Keys.D0, Exit);
             KeyboardKate.Add(Keys.D1, Key1);
             KeyboardKate.Add(Keys.D2, Key2);
             KeyboardKate.Add(Keys.D3, Key3);
             KeyboardKate.Add(Keys.D4, Key4);
 
-            MouseKate = new MouseKate();
+            MouseKate = new MouseController();
             MouseKate.Add("Right-click", Exit);
             MouseKate.Add("Quad1", Key1);
             MouseKate.Add("Quad2", Key2);
@@ -98,7 +98,7 @@ namespace Sprint0
             RexStaticMoving = new StaticSpriteMoving(SpriteSheet, new Rectangle(9, 22, 20, 30), new Vector2(200, 60));
             FireBallStatic = new StaticSprite(SpriteSheet, new Rectangle(461, 31, 16, 16), new Vector2(350, 240));
             SpriteFont Place = Content.Load<SpriteFont>("File");
-            Font = new SpriteFontKate(Place, new Rectangle(0, 0, 0, 0), new Vector2(10, 300));
+            Font = new SpriteFontLabel(Place, new Rectangle(0, 0, 0, 0), new Vector2(10, 300));
             //Instantiate SpriteList
             SpriteList = new List<ISprite>() { DinoRhinoAnimated, BlarggAnimatedMoving, RexStaticMoving, FireBallStatic };
             //Starting screen is static non-moving sprite

@@ -14,7 +14,7 @@ namespace Sprint0
         public int Columns { get; set; }
         public int CurrentFrame { get; set; }
         public int TotalFrames { get; set; }
-        public Rectangle Rectangle {  get; set; }
+        public Rectangle Rectangle { get; set; }
         public int LastFrame { get; set; }
         public int Wait { get; set; }
         public Vector2 Position { get; set; }
@@ -32,7 +32,7 @@ namespace Sprint0
             Wait = 500;
             CurrentFrame = 0;
         }
-       public void Move()
+        public void Move()
         {
             //Static, does not move
         }
@@ -45,8 +45,9 @@ namespace Sprint0
             //Initialize rectangles
             int width = Rectangle.Width;
             int height = Rectangle.Height;
-            Rectangle SourceRectangle = new Rectangle(width + Rectangle.X, height + Rectangle.Y, width, height) ;
-            Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width*3, height*3);
+
+            Rectangle SourceRectangle = Rectangle;
+            Rectangle DestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width * 3, height * 3);
 
             //Draw on screen
             if (Start) SpriteBatch.Draw(Texture, DestinationRectangle, SourceRectangle, Color.White);

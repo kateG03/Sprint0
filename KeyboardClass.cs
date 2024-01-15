@@ -7,7 +7,7 @@ using System.Data;
 namespace Sprint0
 {
 
-    public class KeyboardKate : IController
+    public class KeyboardController : IController
     {
         //Dictionary that contains keys and their associated values
         public Dictionary<object, Action> KeyValuePairs { get; set; }
@@ -15,7 +15,7 @@ namespace Sprint0
         public KeyboardState LastState { get; set; }
 
         //Constructor
-        public KeyboardKate()
+        public KeyboardController()
 
         {
             //Set LastState to the current state of the keyboard
