@@ -77,7 +77,7 @@ namespace Sprint0
         //Kills all keys except the one passed to it <sprite>
         private void KillKeys(ISprite sprite)
         {
-            sprite.Start = !sprite.Start;
+            sprite.Start = true;
             foreach (ISprite i in SpriteList)
             {
                 if (i != sprite)
